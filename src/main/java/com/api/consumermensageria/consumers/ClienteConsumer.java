@@ -14,11 +14,9 @@ public class ClienteConsumer {
         public void listen(@Payload Cliente cliente){ //Usando o message converter para transformar a mensagem (json) em objeto
 
                 //System.out.println("Mensagem recebida: " + cliente.getNome() + ", " + cliente.getProfissao());
-                //System.out.println(mensagem);
 
-                var mapper = new ObjectMapper();
                 try {
-                        System.out.println("Mensagem recebida: " + mapper.writeValueAsString(cliente));
+                        System.out.println("Mensagem recebida: " + new ObjectMapper().writeValueAsString(cliente));
                 } catch (JsonProcessingException e) {
                         throw new RuntimeException(e);
                 }
